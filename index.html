@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Alight Motion · Aktivasi Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #0d0f1a 0%, #151b2b 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      padding: 1.25rem;
+      margin: 0;
+    }
+
+    .card {
+      background: rgba(22, 28, 46, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px;
+      padding: 2.25rem 2rem 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      transition: transform 0.2s ease;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .card-header i {
+      font-size: 2.2rem;
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.1);
+      padding: 0.5rem;
+      border-radius: 18px;
+      box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.15);
+    }
+
+    .card-header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f9fafb 0%, #b9c4e0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .card-header span {
+      background: rgba(251, 191, 36, 0.15);
+      color: #fbbf24;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      margin-left: 0.2rem;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(251, 191, 36, 0.15);
+    }
+
+    .step-badge {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      gap: 0.5rem;
+    }
+
+    .step-badge .step {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #8a93b0;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+
+    .step-badge .step i {
+      font-size: 0.9rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      color: #6f7a9a;
+    }
+
+    .step-badge .step.active i {
+      background: #fbbf24;
+      color: #0d0f1a;
+      border-color: #fbbf24;
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+    }
+
+    .step-badge .step.done i {
+      background: #2dd4bf;
+      color: #0d0f1a;
+      border-color: #2dd4bf;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      border-radius: 4px;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      color: #b6c2e0;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    label i {
+      color: #fbbf24;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .input-wrapper {
+      background: rgba(13, 15, 26, 0.6);
+      border-radius: 24px;
+      padding: 0.1rem 0.1rem 0.1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: border 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .input-wrapper:focus-within {
+      border-color: rgba(251, 191, 36, 0.4);
+      box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.05), 0 0 20px rgba(251, 191, 36, 0.02);
+    }
+
+    .input-wrapper i {
+      color: #4a5475;
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+
+    .input-wrapper input {
+      background: transparent;
+      border: none;
+      padding: 0.9rem 0.5rem 0.9rem 0;
+      width: 100%;
+      color: #f0f4ff;
+      font-size: 1rem;
+      font-weight: 500;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .input-wrapper input::placeholder {
+      color: #4a5475;
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 0.2px;
+    }
+
+    .input-wrapper .clear-btn {
+      background: transparent;
+      border: none;
+      color: #4a5475;
+      padding: 0 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      display: none;
+    }
+
+    .input-wrapper .clear-btn.visible {
+      display: block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      border: none;
+      border-radius: 40px;
+      padding: 1rem 1.8rem;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0d0f1a;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      letter-spacing: 0.3px;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 8px 20px -4px rgba(251, 191, 36, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-primary i {
+      font-size: 1rem;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: scale(1.01);
+      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+      box-shadow: 0 12px 28px -6px rgba(251, 191, 36, 0.25);
+    }
+
+    .btn-primary:active:not(:disabled) {
+      transform: scale(0.97);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      filter: grayscale(0.3);
+    }
+
+    .status-box {
+      margin-top: 1.8rem;
+      border-radius: 24px;
+      padding: 1.2rem 1.5rem;
+      background: rgba(13, 15, 26, 0.5);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.02);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      transition: all 0.25s ease;
+      min-height: 5rem;
+    }
+
+    .status-box i {
+      font-size: 1.3rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    .status-box .msg {
+      color: #c8d2ee;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      font-weight: 400;
+      word-break: break-word;
+    }
+
+    .status-box .msg strong {
+      color: #f0f4ff;
+      font-weight: 600;
+    }
+
+    .status-box.loading i {
+      color: #fbbf24;
+      animation: spin 1.2s linear infinite;
+    }
+
+    .status-box.success i {
+      color: #2dd4bf;
+    }
+
+    .status-box.error i {
+      color: #f87171;
+    }
+
+    .status-box.idle i {
+      color: #4a5475;
+    }
+
+    .status-box .msg .code-highlight {
+      background: rgba(251, 191, 36, 0.08);
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      font-family: 'Inter', monospace;
+      font-weight: 600;
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.08);
+      display: inline-block;
+      margin-top: 0.2rem;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #38405c;
+      letter-spacing: 0.3px;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-note i {
+      font-size: 0.5rem;
+      color: #2d354f;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 1.75rem 1.25rem 2rem;
+        border-radius: 32px;
+      }
+      .card-header h1 {
+        font-size: 1.5rem;
+      }
+      .step-badge .step span {
+        display: none;
+      }
+      .step-badge .step i {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.9rem;
+      }
+      .input-wrapper {
+        padding-left: 1rem;
+      }
+      .input-wrapper input {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="app">
+    <div class="card-header">
+      <i class="fas fa-bolt"></i>
+      <h1>Alight Motion <span>premium</span></h1>
+    </div>
+
+    <div class="step-badge">
+      <div class="step active" id="step1">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+      </div>
+      <div class="divider-line"></div>
+      <div class="step" id="step2">
+        <i class="fas fa-link"></i>
+        <span>Verifikasi</span>
+      </div>
+      <div class="divider-line"></div>
+      <div class="step" id="step3">
+        <i class="fas fa-star"></i>
+        <span>Aktif</span>
+      </div>
+    </div>
+
+    <form id="activationForm" autocomplete="off">
+      <div class="form-group">
+        <label for="emailInput"><i class="fas fa-at"></i> Alamat email</label>
+        <div class="input-wrapper">
+          <i class="fas fa-user"></i>
+          <input type="email" id="emailInput" placeholder="email@contoh.com" required />
+          <button type="button" class="clear-btn" id="clearEmailBtn"><i class="fas fa-times-circle"></i></button>
+        </div>
+      </div>
+
+      <div class="form-group" id="urlGroup">
+        <label for="urlInput"><i class="fas fa-magic"></i> Link verifikasi (dari email)</label>
+        <div class="input-wrapper">
+          <i class="fas fa-link"></i>
+          <input type="text" id="urlInput" placeholder="https://alight.link/verify/..." />
+          <button type="button" class="clear-btn" id="clearUrlBtn"><i class="fas fa-times-circle"></i></button>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary" id="actionBtn">
+        <i class="fas fa-paper-plane"></i> <span id="btnLabel">Kirim Magic Link</span>
+      </button>
+    </form>
+
+    <div class="status-box idle" id="statusBox">
+      <i class="fas fa-circle-info" id="statusIcon"></i>
+      <div class="msg" id="statusMessage">
+        Masukkan email untuk mengirim magic link aktivasi.
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <i class="fas fa-shield-alt"></i>
+      <span>enkripsi end-to-end</span>
+      <i class="fas fa-circle"></i>
+      <span>alight motion 4.0+</span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ============ KONFIGURASI API ============
+      const DEFAULT_BASE = "https://api.znn.my.id/alightmotion";
+      const DEFAULT_API_ROOT = "https://api.znn.my.id";
+      
+      // Endpoint yang digunakan
+      const API_SEND = `${DEFAULT_BASE}/send`;
+      const API_VERIF = `${DEFAULT_BASE}/verif`;
+
+      // DOM refs
+      const emailInput = document.getElementById('emailInput');
+      const urlInput = document.getElementById('urlInput');
+      const clearEmail = document.getElementById('clearEmailBtn');
+      const clearUrl = document.getElementById('clearUrlBtn');
+      const actionBtn = document.getElementById('actionBtn');
+      const btnLabel = document.getElementById('btnLabel');
+      const statusBox = document.getElementById('statusBox');
+      const statusIcon = document.getElementById('statusIcon');
+      const statusMsg = document.getElementById('statusMessage');
+      const step1 = document.getElementById('step1');
+      const step2 = document.getElementById('step2');
+      const step3 = document.getElementById('step3');
+
+      // State
+      let currentEmail = '';
+      let isProcessing = false;
+      let isVerified = false;
+      let sessionId = '';
+
+      // Helper functions
+      function setStatus(type, icon, html) {
+        statusBox.className = 'status-box ' + type;
+        statusIcon.className = 'fas ' + icon;
+        statusMsg.innerHTML = html;
+      }
+
+      function setStep(step) {
+        [step1, step2, step3].forEach(el => el.classList.remove('active', 'done'));
+        if (step === 1) step1.classList.add('active');
+        else if (step === 2) {
+          step1.classList.add('done');
+          step2.classList.add('active');
+        } else if (step === 3) {
+          step1.classList.add('done');
+          step2.classList.add('done');
+          step3.classList.add('active');
+        }
+      }
+
+      function toggleClearBtn(btn, value) {
+        if (value && value.length > 0) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+      }
+
+      function resetToStep1() {
+        setStep(1);
+        currentEmail = '';
+        isVerified = false;
+        sessionId = '';
+        emailInput.value = '';
+        urlInput.value = '';
+        toggleClearBtn(clearEmail, emailInput.value);
+        toggleClearBtn(clearUrl, urlInput.value);
+        setStatus('idle', 'fa-circle-info', 'Masukkan email untuk mengirim magic link aktivasi.');
+        btnLabel.innerText = 'Kirim Magic Link';
+        actionBtn.disabled = false;
+        isProcessing = false;
+        urlInput.disabled = false;
+        document.querySelector('label[for="urlInput"] i').style.opacity = '0.7';
+      }
+
+      // Clear buttons
+      clearEmail.addEventListener('click', () => {
+        emailInput.value = '';
+        toggleClearBtn(clearEmail, '');
+        emailInput.focus();
+        if (!currentEmail) {
+          setStep(1);
+          setStatus('idle', 'fa-circle-info', 'Masukkan email untuk mengirim magic link aktivasi.');
+          btnLabel.innerText = 'Kirim Magic Link';
+        }
+      });
+
+      clearUrl.addEventListener('click', () => {
+        urlInput.value = '';
+        toggleClearBtn(clearUrl, '');
+        urlInput.focus();
+      });
+
+      emailInput.addEventListener('input', () => toggleClearBtn(clearEmail, emailInput.value));
+      urlInput.addEventListener('input', () => toggleClearBtn(clearUrl, urlInput.value));
+
+      // ============ FUNGSI API ============
+      
+      // Fungsi kirim magic link
+      async function sendMagicLink(email) {
+        const response = await fetch(API_SEND, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: email })
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`HTTP ${response.status}: ${errorText}`);
+        }
+
+        return await response.json();
+      }
+
+      // Fungsi verifikasi
+      async function verifyLink(email, url) {
+        const response = await fetch(API_VERIF, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ 
+            email: email,
+            url: url 
+          })
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`HTTP ${response.status}: ${errorText}`);
+        }
+
+        return await response.json();
+      }
+
+      // ============ PROSES ============
+
+      // Proses kirim magic link
+      async function processSend(email) {
+        setStatus('loading', 'fa-spinner', `⏳ Mengirim magic link ke <strong>${email}</strong> ...`);
+        btnLabel.innerText = 'Mengirim...';
+        actionBtn.disabled = true;
+        isProcessing = true;
+
+        try {
+          const data = await sendMagicLink(email);
+          
+          if (data.status === true || data.status === 'success') {
+            currentEmail = email;
+            sessionId = data.session_id || data.sessionId || '';
+            setStep(2);
+            setStatus('success', 'fa-check-circle', 
+              `✅ Magic link berhasil dikirim ke <strong>${email}</strong><br><br>📧 Cek inbox/spam email kamu, lalu masukkan link verifikasi di bawah.`
+            );
+            btnLabel.innerText = 'Verifikasi & Aktivasi';
+            actionBtn.disabled = false;
+            isProcessing = false;
+            urlInput.focus();
+          } else {
+            setStatus('error', 'fa-exclamation-circle', 
+              `❌ Gagal mengirim: ${data.message || data.error || 'Unknown error'}`
+            );
+            btnLabel.innerText = 'Kirim Magic Link';
+            actionBtn.disabled = false;
+            isProcessing = false;
+          }
+        } catch (err) {
+          setStatus('error', 'fa-exclamation-circle', 
+            `❌ Error: ${err.message || 'Gagal terhubung ke server'}`
+          );
+          btnLabel.innerText = 'Kirim Magic Link';
+          actionBtn.disabled = false;
+          isProcessing = false;
+        }
+      }
+
+      // Proses verifikasi
+      async function processVerify(email, url) {
+        setStatus('loading', 'fa-spinner', `⏳ Memverifikasi link ...`);
+        btnLabel.innerText = 'Verifikasi...';
+        actionBtn.disabled = true;
+        isProcessing = true;
+
+        try {
+          const data = await verifyLink(email, url);
+          
+          if (data.status === true || data.status === 'success') {
+            setStep(3);
+            isVerified = true;
+            const codeOrder = data.codeorder || data.code_order || data.order_code || 'AM-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+            setStatus('success', 'fa-crown', 
+              `🎉 <strong>Akun premium berhasil diaktifkan!</strong><br><br>📦 Code Order: <span class="code-highlight">${codeOrder}</span><br><br>✨ Selamat! Kamu sekarang punya akses premium.`
+            );
+            btnLabel.innerText = '✅ Premium Aktif';
+            actionBtn.disabled = true;
+            isProcessing = false;
+            urlInput.disabled = true;
+          } else {
+            setStatus('error', 'fa-exclamation-circle', 
+              `❌ Verifikasi gagal: ${data.message || data.error || 'Link tidak valid atau sudah expired'}`
+            );
+            btnLabel.innerText = 'Verifikasi & Aktivasi';
+            actionBtn.disabled = false;
+            isProcessing = false;
+          }
+        } catch (err) {
+          setStatus('error', 'fa-exclamation-circle', 
+            `❌ Error: ${err.message || 'Gagal terhubung ke server'}`
+          );
+          btnLabel.innerText = 'Verifikasi & Aktivasi';
+          actionBtn.disabled = false;
+          isProcessing = false;
+        }
+      }
+
+      // Submit handler
+      async function formSubmitHandler(e) {
+        e.preventDefault();
+        if (isProcessing) return;
+
+        const email = emailInput.value.trim();
+        const url = urlInput.value.trim();
+
+        // Validasi email
+        if (!email || !email.includes('@')) {
+          setStatus('error', 'fa-exclamation-circle', '❌ Masukkan email yang valid (contoh: nama@domain.com)');
+          emailInput.focus();
+          return;
+        }
+
+        // Tahap 1: Kirim magic link
+        if (!currentEmail) {
+          await processSend(email);
+          return;
+        }
+
+        // Tahap 2: Verifikasi (jika sudah kirim email)
+        if (currentEmail && !isVerified) {
+          if (!url) {
+            setStatus('error', 'fa-exclamation-circle', 
+              `⚠️ Masukkan link verifikasi yang dikirim ke <strong>${currentEmail}</strong>`
+            );
+            urlInput.focus();
+            return;
+          }
+          
+          if (!url.startsWith('http://') && !url.startsWith('https://')) {
+            setStatus('error', 'fa-exclamation-circle', '❌ Link harus diawali dengan http:// atau https://');
+            urlInput.focus();
+            return;
+          }
+
+          await processVerify(currentEmail, url);
+          return;
+        }
+
+        // Jika sudah terverifikasi, reset
+        if (isVerified) {
+          resetToStep1();
+          btnLabel.innerText = 'Kirim Magic Link';
+          urlInput.disabled = false;
+        }
+      }
+
+      // Attach submit handler
+      const form = document.getElementById('activationForm');
+      form.addEventListener('submit', formSubmitHandler);
+
+      // Inisialisasi
+      resetToStep1();
+
+      // Handle jika user klik tombol setelah sukses (reset)
+      actionBtn.addEventListener('click', function(e) {
+        if (isVerified) {
+          e.preventDefault();
+          resetToStep1();
+          btnLabel.innerText = 'Kirim Magic Link';
+          urlInput.disabled = false;
+        }
+      });
+
+      // Test API connection on load (optional)
+      console.log('🚀 Alight Motion Premium Activator');
+      console.log('📡 API Endpoint:', DEFAULT_BASE);
+      console.log('📡 API Root:', DEFAULT_API_ROOT);
+
+    })();
+  </script>
+</body>
+</html>
